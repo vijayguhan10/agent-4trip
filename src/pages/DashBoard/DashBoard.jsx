@@ -130,7 +130,7 @@ const Dashboard = () => {
             </div>
             Bookings & Earnings
           </button>
-          {/*             
+                      
             <button
               className={`flex bg-white items-center gap-2 px-4 py-2 rounded-full ${
                 activeTab === 'voucher' ? 'border-yellow-200 border-2' : 'border-none'
@@ -145,7 +145,7 @@ const Dashboard = () => {
                 <IndianRupee className='w-4 h-4 flex items-center justify-center'/>
               </div>
               Voucher
-            </button> */}
+            </button>
 
           <button
             className={`flex bg-white items-center gap-2 px-4 py-2 rounded-full ${
@@ -199,7 +199,7 @@ const Dashboard = () => {
           SetforexformOpen={SetforexformOpen}
         />
       )}
-      {/* {activeTab === 'voucher' && <Voucher IsModelOpen={IsModelOpen} SetIsModelOpen={SetIsModelOpen}/>} */}
+      {activeTab === 'voucher' && <Voucher IsModelOpen={IsModelOpen} SetIsModelOpen={SetIsModelOpen}/>}
       {activeTab === 'bookings' && (
         <Bookings
           IsModelOpen2={IsModelOpen2}
