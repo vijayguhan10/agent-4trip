@@ -1,4 +1,11 @@
-function TravelInformation({ flights, travelType, onChange, onAddFlight }) {
+function TravelInformation({ flights, travelType, onChange, onAddFlight, onFileUpload }) {
+  const handleFileChange = (e, index) => {
+    const file = e.target.files[0];
+    if (file) {
+      onFileUpload("flights", file, index);
+    }
+  };
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-card">
       <h2 className="text-lg font-medium mb-4">Travel Information</h2>
@@ -38,6 +45,7 @@ function TravelInformation({ flights, travelType, onChange, onAddFlight }) {
                 value={flight.pnrNumber}
                 onChange={(e) => onChange('flights', 'pnrNumber', e.target.value, index)}
                 placeholder="Enter PNR number"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
             
@@ -50,6 +58,7 @@ function TravelInformation({ flights, travelType, onChange, onAddFlight }) {
                 value={flight.destination}
                 onChange={(e) => onChange('flights', 'destination', e.target.value, index)}
                 placeholder="Enter destination"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
           </div>
@@ -66,6 +75,7 @@ function TravelInformation({ flights, travelType, onChange, onAddFlight }) {
                 type="date" 
                 value={flight.departure}
                 onChange={(e) => onChange('flights', 'departure', e.target.value, index)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
             
@@ -80,22 +90,30 @@ function TravelInformation({ flights, travelType, onChange, onAddFlight }) {
                 type="date" 
                 value={flight.return}
                 onChange={(e) => onChange('flights', 'return', e.target.value, index)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
           </div>
           
           <div className="mt-4 flex justify-end">
-            <button className="flex items-center text-primary">
+            <label className="flex items-center text-primary cursor-pointer">
+              <input 
+                type="file" 
+                onChange={(e) => handleFileChange(e, index)}
+                className="hidden"
+                accept=".pdf,.doc,.docx,.jpg,.png"
+              />
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
               </svg>
-              Upload PDF
-            </button>
+              {flight.flightFile ? flight.flightFile.name : "Upload PDF"}
+            </label>
           </div>
         </div>
       ))}
       
       <button 
+        type="button"
         className="flex items-center text-primary hover:text-primary-dark font-medium"
         onClick={onAddFlight}
       >
@@ -105,7 +123,7 @@ function TravelInformation({ flights, travelType, onChange, onAddFlight }) {
         Add another
       </button>
     </div>
-  )
+  );
 }
 
-export default TravelInformation
+export default TravelInformation;
