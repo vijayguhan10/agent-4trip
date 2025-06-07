@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Footer from "../components/Footer";
 const sections = [
   {
     title: "Interpretation",
@@ -156,8 +156,12 @@ const sections = [
       <p>
         This document is an electronic record in accordance with applicable
         Information Technology laws and does not require physical
-        authentication. ORBITRA TECHNOLOGIES LLP may update this Privacy Policy
-        periodically.
+        authentication.{" "}
+        <b>© 2025 ORBITRA TECHNOLOGIES LLP. All rights reserved.</b> <br />
+        Shop no. 3, Gokul Plaza, Veer Savarkar Road, Nr RLY Phatak Gawad Wadi,
+        Virar East, Vasai Virar, Palghar, Maharashtra, 401303
+        <br />
+        ORBITRA TECHNOLOGIES LLP may update this Privacy Policy periodically.
       </p>
     ),
   },
@@ -226,6 +230,7 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
