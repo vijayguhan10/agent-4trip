@@ -59,7 +59,7 @@ function VoucherModel() {
       });
 
       const response = await axios.post(
-        "http://10.57.1.79:8000/upload-multiple",
+        "https://represent-net-ought-surrounded.trycloudflare.com/upload-multiple",
         formData,
         {
           headers: {
