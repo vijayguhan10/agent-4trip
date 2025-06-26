@@ -59,7 +59,7 @@ function VoucherModel() {
       });
 
       const response = await axios.post(
-        "http://15.207.207.226:8000/upload-multiple",
+        "https://ocr.trrip.live/upload-multiple",
         formData,
         {
           headers: {
